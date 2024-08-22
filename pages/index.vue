@@ -15,7 +15,8 @@ const { signIn, signOut, session, status, cookies, getProviders } = useAuth();
 
     <pre>{{ status }}</pre>
     <pre>{{ session?.user }}</pre>
-    <pre>{{ JSON.stringify(session) }}</pre>
+    <!-- <pre>{{ JSON.stringify(session) }}</pre> -->
+    <pre>{{ $config.public.authJs.baseUrl }}</pre>
     <pre>{{ cookies }}</pre>
   </div>
 </template>

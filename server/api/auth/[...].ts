@@ -20,8 +20,13 @@ export const authOptions: AuthConfig = {
   ],
   callbacks: {
     async session({session, token, user}) {
-        session.user.id = token.sub
-
+        if (session.user) {
+            session.user = {
+                ...session.user,
+                id: token.sub,
+            } as { name?: string | undefined; image?: string | undefined; id?: string | undefined };
+        }
+    
         return session
     }
   }
