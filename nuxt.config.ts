@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     preset: 'cloudflare-pages',
   },
 
-  modules: ['nitro-cloudflare-dev', '@hebilicious/authjs-nuxt'],
+  modules: ['nitro-cloudflare-dev', '@hebilicious/authjs-nuxt', "@nuxt/ui"],
 
   runtimeConfig: {
     authJs: {
