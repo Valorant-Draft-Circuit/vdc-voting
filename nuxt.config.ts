@@ -10,7 +10,14 @@ export default defineNuxtConfig({
     preset: 'cloudflare-pages',
   },
 
-  modules: ['nitro-cloudflare-dev', '@hebilicious/authjs-nuxt', "@nuxt/ui"],
+  extends: ['@nuxt/ui-pro'],
+
+  modules: [
+    'nitro-cloudflare-dev',
+    '@hebilicious/authjs-nuxt',
+    '@nuxt/ui',
+    '@nuxt/fonts',
+  ],
 
   runtimeConfig: {
     authJs: {
@@ -27,5 +34,31 @@ export default defineNuxtConfig({
         verifyClientOnEveryRequest: true, // whether to hit the /auth/session endpoint on every client request
       },
     },
+  },
+
+  //Setup the font families and weights
+  fonts: {
+    defaults: {
+      weights: [300, 400, 500, 600, 700],
+      styles: ['normal', 'italic'],
+      subsets: ['latin-ext'],
+    },
+    provider: 'google',
+    families: [
+      {
+        name: 'Montserrat',
+        provider: 'google',
+      },
+      {
+        name: 'Roboto',
+        provider: 'google',
+      },
+    ],
+  },
+
+  //Setup tailwindcss
+  ui: {
+    primary: 'red',
+    gray: 'vdcgrey',
   },
 })
