@@ -7,7 +7,8 @@ export default <Partial<Config>>{
   theme: {
     extend: {
       fontFamily: {
-        custom: ['Montserrat', 'Roboto'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
         sans: ['DM Sans', ...defaultTheme.fontFamily.sans],
       },
       colors: {

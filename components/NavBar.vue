@@ -30,7 +30,13 @@ const links = [
     </template>
 
     <template #right>
+      <AuthNav class="hidden lg:flex pr-2"/>
       <UColorModeToggle />
+    </template>
+
+    <template #panel>
+      <AuthNav class="pb-2"/>
+      <UAsideLinks :links="links" />
     </template>
   </UHeader>
 </template>

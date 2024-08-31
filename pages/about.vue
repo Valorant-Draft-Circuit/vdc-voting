@@ -1,5 +1,5 @@
 <template>
     <div>
-        How it works
+        <NotAvailable></NotAvailable>
     </div>
 </template>
