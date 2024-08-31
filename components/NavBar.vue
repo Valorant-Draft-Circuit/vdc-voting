@@ -8,7 +8,7 @@ const links = [
   {
     label: "Endorsements",
     icon: "mdi:check-decagram-outline",
-    to: "#",
+    to: "/endorse",
   },
   {
     label: "Voting",

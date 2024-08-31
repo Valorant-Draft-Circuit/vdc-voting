@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     '@hebilicious/authjs-nuxt',
     '@nuxt/ui',
     '@nuxt/fonts',
+    '@formkit/nuxt'
   ],
 
   runtimeConfig: {
@@ -34,6 +35,10 @@ export default defineNuxtConfig({
         verifyClientOnEveryRequest: true, // whether to hit the /auth/session endpoint on every client request
       },
     },
+  },
+
+  formkit: {
+    autoImport: true,
   },
 
   //Setup the font families and weights
