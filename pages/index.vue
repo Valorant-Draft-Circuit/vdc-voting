@@ -16,15 +16,9 @@ const { signIn, signOut, session, status, cookies, getProviders } = useAuth();
     <pre>{{ status }}</pre>
     <pre>{{ session?.user }}</pre>
     <!-- <pre>{{ JSON.stringify(session) }}</pre> -->
-    <pre>{{ $config.public.authJs.baseUrl }}</pre>
-    <pre>{{ cookies }}</pre>
+    <!-- <pre>{{ $config.public.authJs.baseUrl }}</pre> -->
+    <!-- <pre>{{ cookies }}</pre> -->
 
-    <UAlert
-    icon="i-heroicons-command-line"
-    color="primary"
-    variant="solid"
-    title="Heads up!"
-    description="You can add components to your app using the cli."
-  />
+    
   </div>
 </template>
