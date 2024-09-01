@@ -17,7 +17,8 @@ export default defineNuxtConfig({
     '@hebilicious/authjs-nuxt',
     '@nuxt/ui',
     '@nuxt/fonts',
-    '@formkit/nuxt'
+    '@formkit/nuxt',
+    '@nuxt/icon'
   ],
 
   runtimeConfig: {
@@ -34,6 +35,12 @@ export default defineNuxtConfig({
         baseUrl: process.env.NUXT_NEXTAUTH_URL, // The URL of your deployed app (used for origin Check in production)
         verifyClientOnEveryRequest: true, // whether to hit the /auth/session endpoint on every client request
       },
+    },
+  },
+
+  icon: {
+    serverBundle: {
+      collections: ['mdi', 'heroicons']
     },
   },
 

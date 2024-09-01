@@ -19,9 +19,7 @@ const { signIn, signOut, session, status, cookies, getProviders } = useAuth();
     <!-- <pre>{{ $config.public.authJs.baseUrl }}</pre> -->
     <!-- <pre>{{ cookies }}</pre> -->
 
-    <p class="font-montserrat font-bold"> Mon font test</p>
-    <p class="font-roboto font-bold"> Roboto font test</p>
+    <p class="font-montserrat font-bold">Mon font test</p>
+    <p class="font-roboto font-bold">Roboto font test</p>
   </div>
 </template>
-
-

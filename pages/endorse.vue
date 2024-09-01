@@ -1,17 +1,16 @@
 <script setup>
+definePageMeta({ middleware: "auth", auth: { guestRedirectTo: "/login" } });
+
 import { ref } from "vue";
 const { session, status } = useAuth();
 const submitted = ref(false);
 const submitHandler = async () => {
-  voted = true;
   submitted.value = true;
 };
 
 const ffcheck = false;
 
 let alreadySubmitted = false;
-
-let voted = false;
 
 const candidates = [
   {
@@ -66,14 +65,13 @@ const candidates = [
   </div>
   <div v-else>
     <h1 class="text-3xl font-bold">Endorsements Form</h1>
-    <div v-if="status === 'unauthenticated'">
-      <p>Please login to endorse candidates</p>
-    </div>
-    <div v-else-if="status === 'loading'">
+    <div v-if="status === 'loading'">
       <p>Loading...</p>
     </div>
-    <div v-else-if="status === 'authenticated' && voted">
-      <h2 class="text-xl text-green-500 capitalize">Congrats, You have submitted your Endorsements.</h2>
+    <div v-else-if="status === 'authenticated' && submitted">
+      <h2 class="text-xl text-green-500 capitalize">
+        Congrats, You have submitted your Endorsements.
+      </h2>
     </div>
     <div v-else-if="status === 'authenticated'">
       <FormKit
@@ -85,7 +83,9 @@ const candidates = [
         :actions="false"
         #default="{ value }"
       >
+        <FormKit type="meta" name="discordID" :value="session?.user?.id" />
         <FormKit type="meta" name="discordName" :value="session?.user?.name" />
+        
         <FormKit
           type="checkbox"
           name="selcCandidates"
