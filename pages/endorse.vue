@@ -1,16 +1,19 @@
 <script setup>
+// Check if user is authenticated
 definePageMeta({ middleware: "auth", auth: { guestRedirectTo: "/login" } });
 
-import { ref } from "vue";
 const { session, status } = useAuth();
+
+//Get FF status
+const { data: ffcheck } = await useFetch("/api/ff/endorse");
+
+//Get if user has already submitted
+const { data: alreadySubmitted } = await useFetch("/api/checks/endorse");
+
 const submitted = ref(false);
 const submitHandler = async () => {
   submitted.value = true;
 };
-
-const ffcheck = false;
-
-let alreadySubmitted = false;
 
 const candidates = [
   {
@@ -57,10 +60,10 @@ const candidates = [
 </script>
 
 <template>
-  <div v-if="alreadySubmitted">
+  <div v-if="alreadySubmitted === '1'">
     <h2 class="text-xl capitalize">You have already submitted your Endorsements</h2>
   </div>
-  <div v-else-if="ffcheck">
+  <div v-else-if="ffcheck.data === 'false'">
     <NotAvailable />
   </div>
   <div v-else>
@@ -68,7 +71,7 @@ const candidates = [
     <div v-if="status === 'loading'">
       <p>Loading...</p>
     </div>
-    <div v-else-if="status === 'authenticated' && submitted">
+    <div v-else-if="submitted">
       <h2 class="text-xl text-green-500 capitalize">
         Congrats, You have submitted your Endorsements.
       </h2>
@@ -85,7 +88,7 @@ const candidates = [
       >
         <FormKit type="meta" name="discordID" :value="session?.user?.id" />
         <FormKit type="meta" name="discordName" :value="session?.user?.name" />
-        
+
         <FormKit
           type="checkbox"
           name="selcCandidates"

@@ -1,6 +1,8 @@
 <script setup>
 const route = useRoute();
 const { signIn, signOut, session, status, cookies, getProviders } = useAuth();
+
+const { data: ffcheck } = await useFetch("/api/ff/endorse");
 </script>
 
 <template>
@@ -21,5 +23,8 @@ const { signIn, signOut, session, status, cookies, getProviders } = useAuth();
 
     <p class="font-montserrat font-bold">Mon font test</p>
     <p class="font-roboto font-bold">Roboto font test</p>
+
+    <p>FF status {{ ffcheck }}</p>
+
   </div>
 </template>

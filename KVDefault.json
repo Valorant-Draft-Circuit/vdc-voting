@@ -1,0 +1,14 @@
+[
+  {
+    "key": "enable-endorsements",
+    "value": "true"
+  },
+  {
+    "key": "enable-voting",
+    "value": "false"
+  },
+  {
+    "key": "enable-results",
+    "value": "false"
+  }
+]
