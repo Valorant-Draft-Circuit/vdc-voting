@@ -67,10 +67,4 @@ export default defineNuxtConfig({
       },
     ],
   },
-
-  //Setup tailwindcss
-  ui: {
-    primary: 'red',
-    gray: 'vdcgrey',
-  },
 })

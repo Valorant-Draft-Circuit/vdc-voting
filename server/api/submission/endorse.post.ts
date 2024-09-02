@@ -20,5 +20,5 @@ export default defineEventHandler(async (event) => {
   const ps = event.context.cloudflare.env.VDC_VOTING_DB.prepare(`INSERT INTO endorsements (discordID, discordName, endorsed) VALUES (${body.discordID}, '${body.discordName}', '${body.selcCandidates}');`)
   const data = await ps.run()
 
-  console.log(data.success)
+  return data.success 
 })

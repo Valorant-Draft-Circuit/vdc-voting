@@ -31,48 +31,56 @@ const submitHandler = async (fields) => {
     <NotAvailable />
   </div>
   <div v-else-if="alreadySubmitted.status">
-    <h2 class="text-xl capitalize">You have already submitted your Endorsements</h2>
+    <ULandingSection
+      title="You have already submitted your endorsements"
+      class="capitalize"
+    />
   </div>
-  <div v-else>
-    <h1 class="text-3xl font-bold">Endorsements Form</h1>
-    <div v-if="status === 'loading'">
-      <p>Loading...</p>
-    </div>
-    <div v-else-if="submitted">
-      <h2 class="text-xl text-green-500 capitalize">
-        Congrats, You have submitted your Endorsements.
-      </h2>
-    </div>
-    <div v-else-if="status === 'authenticated'">
-      <FormKit
-        type="form"
-        id="endorsement"
-        :form-class="submitted ? 'hide' : 'show'"
-        submit-label="Submit"
-        @submit="submitHandler"
-        :actions="false"
-        #default="{ value }"
-      >
-        <FormKit type="meta" name="discordID" :value="session?.user?.id" />
-        <FormKit type="meta" name="discordName" :value="session?.user?.name" />
-
+  <div v-else class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <UPageHeader
+        title="Endorsements Form"
+      />
+      <div v-if="status === 'loading'">
+        <p>Loading...</p>
+      </div>
+      <div v-else-if="submitted">
+        <h2 class="text-xl text-green-500 capitalize">
+          Congrats, You have submitted your Endorsements.
+        </h2>
+      </div>
+      <div v-else-if="status === 'authenticated'">
         <FormKit
-          type="checkbox"
-          name="selcCandidates"
-          label="Select Endorsements"
-          :options="candidates"
-          help="You can select up to 5.  There is no ranked voting"
-          validation="required|max:5"
-          :validation-messages="{
-            required: 'Please select at least one candidate',
-            max: 'You can only select up to 5 candidates',
-          }"
-        />
-        <FormKit type="submit" />
-        <DevOnly>
-          <pre wrap>{{ value }}</pre>
-        </DevOnly>
-      </FormKit>
+          type="form"
+          id="endorsement"
+          :form-class="submitted ? 'hide' : 'show'"
+          submit-label="Submit"
+          @submit="submitHandler"
+          :actions="false"
+          #default="{ value }"
+        >
+          <FormKit type="meta" name="discordID" :value="session?.user?.id" />
+          <FormKit type="meta" name="discordName" :value="session?.user?.name" />
+
+          <FormKit
+            type="checkbox"
+            name="selcCandidates"
+            label="Select Endorsements"
+            :options="candidates"
+            help="You can select up to 5.  There is no ranked voting"
+            validation="required|max:5"
+            :validation-messages="{
+              required: 'Please select at least one candidate',
+              max: 'You can only select up to 5 candidates',
+            }"
+
+          />
+          <FormKit type="submit" />
+          <DevOnly>
+            <pre wrap>{{ value }}</pre>
+          </DevOnly>
+        </FormKit>
+      </div>
     </div>
   </div>
 </template>
