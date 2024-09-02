@@ -23,7 +23,7 @@
             <h2 class="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">Phase 4: Interviews with current Admins</h2>
             <p class="mt-4">Candidates who receive the required number of endorsements will be interviewed by the current admin team and advisors.<br />
                 Interviews will be conducted in a private voice channel and will be recorded for transparency.<br />
-                Interviews will be conducted over a period of three 3 days.
+                Interviews will be conducted over a period of seven (7) days.  Less if all candidates have been interviewed.
             </p> <!-- TODO:Check with admins on int length -->
             <h2 class="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">Phase 5: Staff Voting</h2>
             <p class="mt-4">After the interviews have concluded, all current VDC staff will have the opportunity to vote.</p>
