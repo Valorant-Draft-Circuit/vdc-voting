@@ -11,5 +11,7 @@ export default defineEventHandler(async (event) => {
   //@ts-ignore
   const ps = event.context.cloudflare.env.VDC_VOTING_DB.prepare(`SELECT COUNT(1) FROM endorsements WHERE discordID = ${session.user.id}`)
   const data = await ps.run()
-  return new Response(String(data.results[0]['COUNT(1)']), { status: 200 })
+  return {
+    status: data.results[0]['COUNT(1)'] == 1
+  }
 })

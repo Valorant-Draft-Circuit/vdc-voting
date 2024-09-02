@@ -13,12 +13,12 @@ const links = [
   {
     label: "Voting",
     icon: "mdi:ballot-outline",
-    to: "#",
+    to: "/voting",
   },
   {
     label: "Results",
     icon: "mdi:chart-box-outline",
-    to: "#",
+    to: "/results",
   },
 ];
 </script>
