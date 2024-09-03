@@ -8,7 +8,7 @@ compatibility_flags = ['nodejs_compat']
 [vars]
 DISABLE_NODE_FETCH_NATIVE_WARN = true
 NODE_VERSION = "20.12.2"
-NUXT_NEXTAUTH_URL= "voting.vdc.gg"
+NUXT_NEXTAUTH_URL= "https://voting.vdc.gg"
 
 
 [[kv_namespaces]]
