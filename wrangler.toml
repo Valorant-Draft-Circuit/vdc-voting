@@ -20,6 +20,9 @@ binding = "VDC_VOTING_DB"
 database_name = "vdc_voting"
 database_id = "82a64a20-4c1c-4a24-a5cf-487583313b86"
 
+[limits]
+cpu_ms = 300
+
 # Automatically place your workloads in an optimal location to minimize latency.
 # If you are running back-end logic in a Pages Function, running it closer to your back-end infrastructure
 # rather than the end user may result in better performance.
